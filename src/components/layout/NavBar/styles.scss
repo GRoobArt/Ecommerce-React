@@ -1,0 +1,39 @@
+@import './../../../main.scss';
+
+.navbar {
+  background-color: getColor('light', 'background');
+  color: getColor('light', 'text');
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  .item-nav {
+    padding: 0.6rem 1.2rem;
+    .link {
+      color: getColor('light', 'text');
+      text-decoration: none;
+
+      &:hover {
+        color: getColor('light', 'primary');
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.dark {
+  .navbar {
+    background-color: getColor('dark', 'background');
+    color: getColor('dark', 'text');
+    .item-nav {
+      .link {
+        text-decoration: none;
+        color: getColor('dark', 'text');
+        &:hover {
+          color: getColor('dark', 'primary');
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

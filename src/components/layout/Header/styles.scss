@@ -1,0 +1,22 @@
+@import './../../../main.scss';
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 40px;
+  .logo {
+    color: getColor('light', 'text');
+    text-decoration: none;
+    max-width: 75px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .dark {
+    .logo {
+      color: getColor('dark', 'text');
+    }
+  }
+}

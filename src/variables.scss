@@ -1,0 +1,31 @@
+// Font
+$font-family: 'Noto Sans Jp', sans-serif;
+
+// Colors
+$color-white: #fafafa;
+$color-black: #212121;
+
+$color-primary-500: #d9a74a;
+$color-primary-400: #e1b96e;
+
+$color-secondary-500: #f2e9d8;
+$color-secondary-400: #f5ede0;
+
+$theme: (
+  light: (
+    background: $color-white,
+    text: $color-black,
+    primary: $color-primary-500,
+    secondary: $color-secondary-500,
+  ),
+  dark: (
+    background: $color-black,
+    text: $color-white,
+    primary: $color-primary-400,
+    secondary: $color-secondary-400,
+  ),
+);
+
+@function getColor($mode, $key) {
+  @return map-get(map-get($theme, $mode), $key);
+}

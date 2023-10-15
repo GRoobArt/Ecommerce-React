@@ -1,0 +1,28 @@
+@import '../../../main.scss';
+
+.cart-content {
+  display: flex;
+  justify-content: space-between;
+  width: fit-content;
+  min-width: 32px;
+  position: relative;
+  .cart-icon {
+    display: block;
+  }
+  .count {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    text-align: center;
+    left: -1rem;
+    top: -0.85rem;
+    background-color: getColor('light', 'primary');
+    color: getColor('light', 'background');
+  }
+}
