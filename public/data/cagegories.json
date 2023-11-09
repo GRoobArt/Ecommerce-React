@@ -1,0 +1,6 @@
+[
+  { "id": "1", "name": "New Arrivals", "icon": "new.svg" },
+  { "id": "3", "name": "Woman", "icon": "woman.svg" },
+  { "id": "5", "name": "Men", "icon": "men.svg" },
+  { "id": "7", "name": "Kids", "icon": "kids.svg" }
+]

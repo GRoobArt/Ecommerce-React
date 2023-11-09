@@ -1,0 +1,26 @@
+@import '../variables';
+
+html {
+  font-size: $font-root-size;
+  body {
+    font-size: $font-size-base;
+    background-color: $color-background-base;
+    color: $color-text-base;
+    * {
+      font-family: $font-base;
+    }
+  }
+}
+
+$sizes-fonts: 1, 2, 3, 4, 5, 6;
+
+@each $size in $sizes-fonts {
+  h#{$size} {
+    margin-top: 0;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}

@@ -1,0 +1,50 @@
+@import '../../variables.scss';
+
+.card-product {
+  color: $color-text-base;
+  text-decoration: none;
+  .head {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    border-radius: 5px;
+    .card-action {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      position: absolute;
+      bottom: -60px;
+      z-index: 2;
+      width: 100%;
+    }
+    .img-content {
+      position: relative;
+      .principal {
+        position: absolute;
+      }
+    }
+  }
+  .content {
+    padding: 1rem 0.5rem;
+    .name {
+      font-size: $font-size-l;
+      font-weight: 400;
+    }
+    .amount {
+      color: $color-grey-400;
+    }
+  }
+  &:hover {
+    .head {
+      .card-action {
+        bottom: 1rem;
+        transition: bottom 0.3s ease-in-out;
+      }
+      .img-content {
+        .principal {
+          display: none;
+        }
+      }
+    }
+  }
+}

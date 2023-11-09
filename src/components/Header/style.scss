@@ -1,0 +1,57 @@
+@import '../../variables.scss';
+@import './Navbar/style.scss';
+@import './Minicart/style.scss';
+
+.header {
+  padding: 0.5rem 1rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  position: fixed;
+  background-color: $color-backgrount-tertiary;
+  color: $color-text-secondary;
+  z-index: 2;
+  overflow-x: hidden;
+
+  &.open {
+    max-width: 150px;
+    transition: max-width 0.3s ease-in-out;
+  }
+  &.close {
+    max-width: 80px;
+    transition: max-width 0.5s ease-in-out;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    height: 70%;
+  }
+  > .brand,
+  > .changet-status {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    width: fit-content;
+    .icon {
+      width: 2rem;
+      line-height: 0;
+      padding: 0.7rem 1rem;
+      border-radius: 20rem;
+      aspect-ratio: 3/4;
+    }
+  }
+  .changet-status {
+    .icon {
+      &.close {
+        rotate: 180deg;
+        transition: rotate 280ms ease-in-out;
+      }
+    }
+  }
+}

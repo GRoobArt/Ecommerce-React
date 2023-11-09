@@ -1,0 +1,15 @@
+@import '../../variables.scss';
+@import './gallery/styles.scss';
+
+.product-page {
+  display: flex;
+  .sidebar-product {
+    padding: 2rem;
+    width: 100%;
+    max-width: 25vw;
+    .head {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

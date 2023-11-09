@@ -1,0 +1,30 @@
+@import '../../variables.scss';
+
+button.action {
+  padding: 0.7rem 1rem;
+  border-radius: 20rem;
+  border: none;
+  cursor: pointer;
+  &.primary {
+    background-color: $color-background-primary;
+    &:hover {
+      background-color: $color-text-tertiary;
+    }
+  }
+  &.secondary {
+    background-color: $color-background-base;
+    &:hover {
+      background-color: $color-background-secondary;
+    }
+  }
+  &.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1/1;
+    .icon {
+      width: 2rem;
+      line-height: 0;
+    }
+  }
+}
