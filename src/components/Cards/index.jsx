@@ -21,7 +21,7 @@ const Cards = ({ url, name, amount, favorite, imgs }) => {
   }
 
   const OpenProduct = (patch) => {
-    navigate(`product/${patch}`)
+    navigate(`${patch}`)
   }
 
   return (

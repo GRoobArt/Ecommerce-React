@@ -1,0 +1,67 @@
+@import '../../../variables.scss';
+
+aside.minicart {
+  position: fixed;
+  background-color: $color-backgrount-tertiary;
+  color: $color-text-secondary;
+  padding: 0.5rem 1rem;
+  border-left: 2px solid $color-text-secondary;
+  max-height: 100vh;
+  height: calc(100% - 1rem);
+  width: 100%;
+  z-index: 2;
+  overflow-x: hidden;
+  border-radius: 0 20px 20px 0;
+
+  &.open {
+    left: 178px;
+    transition: left 0.3s ease-in-out;
+  }
+  &.close {
+    left: 84px;
+    transition: left 0.3s ease-in-out;
+  }
+
+  &.view {
+    max-width: 320px;
+    display: block;
+    transition: display 0.3s ease-in-out;
+  }
+  &.notView {
+    display: none;
+  }
+
+  .head {
+    .title {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .content {
+    .list-products {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      .product {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        .img {
+          max-width: 25%;
+          height: 100%;
+        }
+        .info {
+          width: 55%;
+          .name,
+          .color,
+          .size,
+          .qty {
+            margin: 0;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}

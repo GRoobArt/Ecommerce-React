@@ -1,0 +1,43 @@
+@import '../../variables.scss';
+
+.product-page {
+  .review {
+    text-align: left;
+    position: relative;
+    white-space: nowrap;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    .content {
+      width: fit-content;
+    }
+    .icon {
+      height: 16px;
+      width: auto;
+    }
+    .mask {
+      height: 16px;
+      width: auto;
+      display: inline-block;
+      position: absolute;
+      overflow: hidden;
+      left: 0;
+      max-width: 80px;
+      &::before {
+        content: '';
+        height: 16px;
+        width: 80px;
+        background-image: url('/icons/white/stars-fill.svg');
+        background-size: cover;
+        display: inline-block;
+      }
+    }
+    .count {
+      margin: 0;
+      padding: 0;
+      font-size: $font-size-s;
+      color: $color-grey-400;
+    }
+  }
+}

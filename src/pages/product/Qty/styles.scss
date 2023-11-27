@@ -1,0 +1,33 @@
+@import '../../../variables.scss';
+
+.qty-control {
+  display: flex;
+  gap: 0.25rem;
+  .qty {
+    appearance: auto;
+    text-align: center;
+    aspect-ratio: 1/1;
+    padding: 0;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    min-width: auto;
+    outline: none;
+    border: 0;
+    border-radius: 20px;
+    background-color: $color-background-base;
+    color: $color-text-base;
+  }
+  .action {
+    &.icon .icon {
+      width: 1rem;
+      aspect-ratio: 1/1;
+    }
+    &.qty-add,
+    &.qty-subtract {
+      height: 3rem;
+      aspect-ratio: 1/1;
+      min-height: auto;
+    }
+  }
+}

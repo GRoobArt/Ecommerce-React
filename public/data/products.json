@@ -6,6 +6,12 @@
     "amount": "180",
     "is_favorite": "false",
     "url": "1",
+    "size": ["8", "9", "10", "11", "12", "13"],
+    "color": "Blue",
+    "review": {
+      "porcents": 25,
+      "reviews": 40
+    },
     "imgs": [
       {
         "id": "1",

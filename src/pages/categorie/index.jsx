@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import Cards from '../../components/Cards'
@@ -27,7 +26,7 @@ const Categorie = () => {
             ({ id, name, amount, is_favorite, id_categorie, url, imgs }) => (
               <Cards
                 key={id}
-                url={url}
+                url={`product/${url}`.toLowerCase()}
                 name={name}
                 amount={amount}
                 favorite={is_favorite}

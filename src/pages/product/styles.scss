@@ -8,8 +8,44 @@
     width: 100%;
     max-width: 25vw;
     .head {
-      display: flex;
-      justify-content: space-between;
+      border-bottom: 2px solid $color-grey-800;
+      padding-bottom: 1rem;
+      .info {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        .title {
+          width: 100%;
+        }
+      }
+    }
+    .content {
+      .colors-select {
+        font-size: 1.5rem;
+      }
+      .options-products {
+        .sizes-container {
+          display: flex;
+          gap: 0.5rem;
+        }
+        border: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        padding: 1rem 0;
+      }
+      .submit-add-to-cart {
+        margin: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+        display: flex;
+        gap: 0.5rem;
+        padding: 1rem 0;
+        border: 2px solid $color-grey-800;
+        border-left: none;
+        border-right: none;
+      }
     }
   }
 }

@@ -7,18 +7,22 @@ import Home from './pages/Home'
 import Categorie from './pages/categorie'
 import Product from './pages/Product'
 
+import { CartContentProvider } from './context/CartContext.jsx'
+
 import './global.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<App />}>
-        <Route index element={<Home />} />
-        <Route path='categorie/:id'>
-          <Route index element={<Categorie />} />
-          <Route path='product/:id' element={<Product />} />
+  <CartContentProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<App />}>
+          <Route index element={<Home />} />
+          <Route path='categorie/:id'>
+            <Route index element={<Categorie />} />
+            <Route path='product/:id' element={<Product />} />
+          </Route>
         </Route>
-      </Route>
-    </Routes>
-  </BrowserRouter>
+      </Routes>
+    </BrowserRouter>
+  </CartContentProvider>
 )
