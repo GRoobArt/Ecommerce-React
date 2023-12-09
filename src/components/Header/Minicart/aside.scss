@@ -11,6 +11,8 @@ aside.minicart {
   width: 100%;
   z-index: 2;
   overflow-x: hidden;
+  flex-direction: column;
+  justify-content: space-between;
   border-radius: 0 20px 20px 0;
 
   &.open {
@@ -24,7 +26,7 @@ aside.minicart {
 
   &.view {
     max-width: 320px;
-    display: block;
+    display: flex;
     transition: display 0.3s ease-in-out;
   }
   &.notView {
@@ -39,10 +41,17 @@ aside.minicart {
   }
 
   .content {
+    height: 100%;
+    overflow-y: auto;
+    padding-right: 1rem;
     .list-products {
       list-style: none;
       padding: 0;
       margin: 0;
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+      max-height: 100%;
       .product {
         display: flex;
         justify-content: space-between;
@@ -52,7 +61,7 @@ aside.minicart {
           height: 100%;
         }
         .info {
-          width: 55%;
+          width: 42%;
           .name,
           .color,
           .size,
@@ -61,7 +70,20 @@ aside.minicart {
             padding: 0;
           }
         }
+        .remove {
+          width: 5%;
+          .icon {
+            width: 100%;
+          }
+        }
       }
     }
+  }
+
+  .footer {
+    display: flex;
+    gap: 1rem;
+    padding-top: 1rem;
+    flex-direction: column;
   }
 }

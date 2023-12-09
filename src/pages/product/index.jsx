@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom'
-import usePetition from '../../hooks/usePetition'
 import { useState, useContext } from 'react'
 
 import Gallery from './Gallery'
@@ -10,15 +9,12 @@ import QtyControl from './Qty'
 import { CartContext } from '../../context/CartContext'
 
 import './styles.scss'
+import useDoc from '../../firebase/useDoc'
 
 const Product = () => {
   const { id } = useParams()
-
-  const { addToCard, cart } = useContext(CartContext)
-
-  const [products, setProducts] = usePetition('/data/products.json')
-
-  const product = products && products.find((product) => product.id === id)
+  const { addToCard } = useContext(CartContext)
+  const [product, loading] = useDoc('products', id)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -47,7 +43,7 @@ const Product = () => {
 
   return (
     <main className='main-content product-page'>
-      {product && (
+      {!loading && (
         <>
           <section className='info-product'>
             <Gallery imgs={product.imgs} alt={product.name} />

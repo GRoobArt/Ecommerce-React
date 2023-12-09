@@ -1,0 +1,16 @@
+@import '../variables.scss';
+
+input {
+  border: 1px solid $color-text-base;
+  background-color: $color-background-base;
+  min-height: 40px;
+  color: $color-text-base;
+  padding: 0 1rem;
+  border-radius: 2px;
+  min-width: 200px;
+  margin-bottom: 1rem;
+  &:focus {
+    outline: none;
+    color: $color-text-white;
+  }
+}

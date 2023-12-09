@@ -1,14 +1,17 @@
-import { PRODUCTS } from '../../../helpers/parth'
 import { useNavigate } from 'react-router-dom'
+
+import { useContext } from 'react'
+import { CartContext } from '../../../context/CartContext'
+
+import Button from '../../Buttom'
+import ItemsMinicart from './item'
 
 import './aside.scss'
 
 const AsideMinicart = ({ state, content, status }) => {
   const navigate = useNavigate()
 
-  const OpenNavigate = (patch) => {
-    navigate(`${patch}`)
-  }
+  const { removeToCard, empyToCart } = useContext(CartContext)
 
   return (
     <aside
@@ -17,55 +20,45 @@ const AsideMinicart = ({ state, content, status }) => {
       }`}>
       <div className='head'>
         <h2 className='title'>
-          Minicart <span>$ {content.total}</span>
+          Minicart <span>$ {content.subtotal}</span>
         </h2>
       </div>
       <div className='content'>
         <ul className='list-products'>
-          {content.products.map(
-            ({
-              id,
-              name,
-              url,
-              size,
-              color,
-              amount,
-              id_categorie,
-              qty,
-              img,
-            }) => (
-              <li
-                className='product'
-                key={id}
-                onClick={() => {
-                  OpenNavigate(
-                    `categorie/${id_categorie}/product/${url}`.toLowerCase()
-                  )
-                }}>
-                <img
-                  className='img'
-                  src={`${PRODUCTS}/1/${img.img}`}
-                  alt={name}
-                />
-                <div className='info'>
-                  <h3 className='name'>{name}</h3>
-                  <p className='color'>
-                    Color: <span>{color}</span>
-                  </p>
-                  <p className='size'>
-                    Size: <span>{size}</span>
-                  </p>
-                  <p className='qty'>
-                    Qty: <span>{qty}</span>
-                  </p>
-                </div>
-                <span className='price'>$ {amount}</span>
-              </li>
-            )
+          {content.qty > 0 && (
+            <ItemsMinicart items={content.products} action={removeToCard} />
+          )}
+          {content.qty === 0 && (
+            <li className='product'>
+              <div className='info'>
+                <h3 className='name'>No hay productos</h3>
+              </div>
+            </li>
           )}
         </ul>
       </div>
-      <div className='footer'></div>
+      <div className='footer'>
+        {content.qty > 0 && (
+          <>
+            <Button
+              type='button'
+              style='secondary fill empycart'
+              action={() => {
+                empyToCart()
+              }}>
+              Vaciar Carro
+            </Button>
+            <Button
+              type='button'
+              style='primary fill payment'
+              action={() => {
+                navigate('/checkout')
+              }}>
+              Ir a Pagar
+            </Button>
+          </>
+        )}
+      </div>
     </aside>
   )
 }

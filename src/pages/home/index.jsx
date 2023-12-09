@@ -1,10 +1,11 @@
-import usePetition from '../../hooks/usePetition'
+import useCollection from '../../firebase/useCollection'
 import Cards from '../../components/Cards'
+import Spline from '@splinetool/react-spline'
 
 import './styles.scss'
 
 const Home = () => {
-  const [products, setProducts] = usePetition('/data/products.json')
+  const [products, loading] = useCollection('products')
 
   return (
     <main className='main-content home-page'>
@@ -13,14 +14,16 @@ const Home = () => {
       </section>
       <section>
         <h1>All Product</h1>
-
+        {/* <article>
+          <Spline scene='https://prod.spline.design/IXQ0XGTHwipo9Gkz/scene.splinecode' />
+        </article> */}
         <article className='list-product'>
-          {products &&
+          {!loading &&
             products.map(
-              ({ id, name, amount, is_favorite, id_categorie, url, imgs }) => (
+              ({ id, name, amount, is_favorite, id_categorie, imgs }) => (
                 <Cards
                   key={id}
-                  url={`categorie/${id_categorie}/product/${url}`.toLowerCase()}
+                  url={`product/${id}`}
                   name={name}
                   amount={amount}
                   favorite={is_favorite}

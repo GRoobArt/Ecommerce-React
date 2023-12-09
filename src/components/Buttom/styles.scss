@@ -14,9 +14,15 @@ button.action {
   }
   &.secondary {
     background-color: $color-background-base;
+    color: $color-text-base;
     &:hover {
       background-color: $color-background-secondary;
     }
+  }
+  &.link {
+    padding: 0;
+    background-color: transparent;
+    height: fit-content;
   }
   &.fill {
     width: 100%;

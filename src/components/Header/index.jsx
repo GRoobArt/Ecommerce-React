@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { NavLink } from 'react-router-dom'
 
@@ -11,22 +11,16 @@ import { CartContext } from '../../context/CartContext'
 
 import { ICONS_BLACK, LOGOS } from '../../helpers/parth'
 
+import useCollection from '../../firebase/useCollection'
+
 import './style.scss'
 
 const Header = () => {
-  const [categories, setCategories] = useState([])
+  const [categories, loading] = useCollection('categorie')
   const [state, setState] = useState(false)
   const [minicartState, setMinicartState] = useState(false)
 
   const { cart } = useContext(CartContext)
-
-  useEffect(() => {
-    fetch('/data/cagegories.json')
-      .then((res) => res.json())
-      .then((data) => {
-        setCategories(data)
-      })
-  }, [])
 
   const ChangetState = () => {
     setState(!state)
@@ -61,9 +55,11 @@ const Header = () => {
           content={cart}
           action={openCart}
         />
-        <nav className='container'>
-          <NavBar list={categories} state={state} />
-        </nav>
+        {!loading && (
+          <nav className='container'>
+            <NavBar list={categories} state={state} />
+          </nav>
+        )}
         <button className='changet-status' type='buttom' onClick={ChangetState}>
           <img
             className={`${!state ? 'open' : 'close'} icon`}

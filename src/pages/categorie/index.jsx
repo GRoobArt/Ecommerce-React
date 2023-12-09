@@ -3,30 +3,30 @@ import { useParams } from 'react-router-dom'
 import Cards from '../../components/Cards'
 
 import './styles.scss'
-import usePetition from '../../hooks/usePetition'
+import useCollection from '../../firebase/useCollection'
+import useDoc from '../../firebase/useDoc'
 
 const Categorie = () => {
-  const { id } = useParams()
+  const { id, url } = useParams()
 
-  const [categories, setCategories] = usePetition('/data/cagegories.json')
-  const [products, setProducts] = usePetition('/data/products.json')
-  const categorie =
-    categories && categories.find((categorie) => categorie.id === id)
-  const listProduct =
-    products && products.filter((product) => product.id_categorie === id)
+  const [categorie, loadingCategorie] = useDoc('categorie', id)
+  const [products, loadingProducts] = useCollection(
+    'products',
+    `id_categorie=${url}`
+  )
 
   return (
     <main className='main-content categorie-page'>
       <section className='head'>
-        {categorie && <h1>{categorie.name}</h1>}
+        {!loadingCategorie && <h1>{categorie.name}</h1>}
       </section>
       <section className='list'>
-        {listProduct &&
-          listProduct.map(
-            ({ id, name, amount, is_favorite, id_categorie, url, imgs }) => (
+        {!loadingProducts &&
+          products.map(
+            ({ id, name, amount, is_favorite, id_categorie, imgs }) => (
               <Cards
                 key={id}
-                url={`product/${url}`.toLowerCase()}
+                url={`/product/${id}`}
                 name={name}
                 amount={amount}
                 favorite={is_favorite}

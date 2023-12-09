@@ -9,10 +9,8 @@ import './styles.scss'
 const Cards = ({ url, name, amount, favorite, imgs }) => {
   const navigate = useNavigate()
 
-  const imgHover = imgs.find(({ id, tag, img }) => tag.includes('hover'))
-  const imgPrincipal = imgs.find(({ id, tag, img }) =>
-    tag.includes('principal')
-  ) || { img: imgs[0].img }
+  const imgHover = imgs.find(({ tag }) => tag.includes('hover'))
+  const imgPrincipal = imgs.find(({ tag }) => tag.includes('principal'))
 
   const [IsFavorite, setIsFavorite] = useState(favorite)
 
